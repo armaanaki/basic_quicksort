@@ -12,7 +12,7 @@ def quicksort(array):
     right = []
     equal = [pivot]
 
-    # if the value is less than the iterator
+    # place each value in it's appropriate array
     for current in arrayiter:
         if current < pivot:
             left.append(current)
@@ -21,6 +21,7 @@ def quicksort(array):
         else:
             equal.append(current)
     print("Pivot and numbers equal to it: %s, Numbers less than: %s, Numbers more than: %s" % (equal, left, right))
+    # recursively call quicksort on left and right side then combine with pivot
     return quicksort(left) + equal + quicksort(right) 
 
 
@@ -37,5 +38,6 @@ for x in sys.argv[1].split(','):
     array.append(int(x))
 
 
+# call the quicksort and print the results
 array = quicksort(array)
 print("\nFinal sorted array: %s" % (array))
